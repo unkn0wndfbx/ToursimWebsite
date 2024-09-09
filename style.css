@@ -6,11 +6,12 @@
     --color-primaire: #94b0da;
     --color-secondaire: #dcedff;
     --color-blanc: #FFFFFF;
+    --color-blanc-texte: #b1b1b1;
     --color-noir: #202020;
     --color-gris: #8f91a2;
 
     --header-height: 90px;
-    --border-radius: 15px;
+    --border-radius: 32px;
 }
 
 /* proprietes universelles */
@@ -22,7 +23,8 @@
     scroll-behavior: smooth;
 }
 
-img, a {
+img,
+a {
     -webkit-user-drag: none;
     font-family: "Poppins";
 }
@@ -32,12 +34,29 @@ img, a {
     color: var(--color-noir);
 }
 
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.row.reverse {
+    flex-direction: row-reverse;
+}
+
 /* proprietes de la page */
 body {
     min-height: 100vh;
     overflow-x: hidden;
     background: var(--color-noir);
-    padding-top: var(--header-height);
     width: 100%;
     display: flex;
     align-items: center;
@@ -70,7 +89,7 @@ header {
 header h1 a {
     font-size: 1.5rem;
     font-weight: 800;
-    color: var(--color-blanc);
+    color: var(--color-primaire);
     text-decoration: none;
 }
 
@@ -115,9 +134,13 @@ header h1 a {
 }
 
 /* accueil */
-#accueil {
+#accueil,
+section#destinations,
+section#evenements,
+section#logements {
     width: 100vw;
-    height: calc(100vh - var(--header-height));
+    height: 100vh;
+    padding-top: var(--header-height);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,19 +150,22 @@ header h1 a {
 #accueil h2 {
     font-size: 3rem;
     font-weight: 800;
-    line-height: 3.4rem;
+    line-height: 1.1;
     color: var(--color-blanc);
     text-align: center;
     margin-top: auto;
+    max-width: 30%;
 }
 
 #accueil p.desc {
     font-size: 1rem;
+    line-height: 1.4;
     font-weight: 500;
     color: var(--color-gris);
     text-align: center;
     margin-top: 12px;
     margin-bottom: auto;
+    max-width: 30%;
 }
 
 #accueil .bas {
@@ -173,27 +199,45 @@ header h1 a {
 
 /* section destinations */
 section#destinations {
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     min-height: 100vh;
     height: auto;
-    padding: 1.5% 5%;
+    padding: 5%;
+}
+
+#destinations h2,
+#evenements h2,
+#logements h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-blanc);
+    text-align: center;
+}
+
+h2 span {
+    color: var(--color-primaire);
+}
+
+#destinations p.desc,
+#evenements p.desc,
+#logements p.desc {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-gris);
+    text-align: center;
+    margin-top: 8px;
+    margin-bottom: 5%;
 }
 
 #destinations .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    padding: 20px;
     width: 100%;
 }
 
 #destinations .card {
     position: relative;
-    border-radius: 15px;
+    border-radius: var(--border-radius);
     overflow: hidden;
     height: 350px;
 }
@@ -213,50 +257,57 @@ section#destinations {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Couche semi-transparente */
-    color: white;
-    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--color-blanc);
+    padding: 40px 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: start;
 }
 
-#destinations .card h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
+#destinations .card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+    line-height: 1;
 }
 
 #destinations .card p {
-    font-size: 14px;
-    margin-bottom: 20px;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: .9rem;
+    color: var(--color-blanc-texte);
+    line-height: 1.2rem;
 }
 
 #destinations .profile {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     margin-top: auto;
+    width: 100%;
 }
 
 #destinations .profile img {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 8px;
+    position: static;
+}
+
+#destinations .profile .column {
+    align-items: start;
 }
 
 #destinations .profile span {
-    display: block;
-    font-size: 12px;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
 #destinations .profile span:last-child {
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--color-blanc-texte);
+    font-weight: 400;
 }
 
-/* Special card sizes */
 #destinations .card.large {
     grid-column: span 2;
 }
@@ -264,4 +315,110 @@ section#destinations {
 #destinations .card.medium {
     grid-column: span 1;
     grid-row: span 2;
+}
+
+/* section evenements */
+section#evenements {
+    min-height: 100vh;
+    height: auto;
+    padding: 5%;
+}
+
+#evenements .row,
+#evenements .row.reverse {
+    width: 100%;
+    justify-content: space-evenly;
+    margin-bottom: 5%;
+}
+
+#evenements img {
+    border-radius: var(--border-radius);
+    width: 50%;
+    height: 50%;
+    height: auto;
+    object-fit: cover;
+    margin-right: 5%;
+}
+
+#evenements .row.reverse img {
+    margin-right: 0;
+    margin-left: 5%;
+}
+
+#evenements .column {
+    width: 50%;
+    align-items: start;
+}
+
+#evenements .row h3 {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+    color: var(--color-blanc);
+}
+
+#evenements .row p {
+    font-size: 1.1rem;
+    color: var(--color-blanc-texte);
+}
+
+/* section logements */
+section#logements {
+    padding: 5%;
+}
+
+.slider {
+    position: relative;
+    width: 40vw;
+    overflow: hidden;
+    height: 45vh;
+    background-color: var(--color-blanc);
+    border-radius: var(--border-radius);
+}
+
+.slider__wrp {
+    display: flex;
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.slider .item {
+    min-width: 100%;
+    height: 100%;
+    padding: 5%;
+}
+
+.slider img {
+    width: 25vh;
+    height: 25vh;
+    min-width: 25vh;
+    max-width: 25vh;
+    margin-right: 5%;
+    object-fit: cover;
+    overflow: hidden;
+    border-radius: calc(var(--border-radius) - 5%);
+}
+
+.slider .column {
+    align-items: start;
+    width: 100%;
+}
+
+.slider-nav {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    left: 0;
+    padding: 0 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #fd3838;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
