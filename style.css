@@ -482,3 +482,52 @@ section#carte {
     border-radius: var(--border-radius);
     border: 2px solid var(--color-border);
 }
+
+/* bouton musique */
+#music_control {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--color-primaire);
+    color: var(--color-noir);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999999;
+}
+
+#music_control i {
+    font-size: 1.5rem;
+}
+
+#music_control:hover {
+    background-color: var(--color-secondaire);
+}
+
+#music_control::after {
+    content: 'Activer/Désactiver la musique';
+    position: absolute;
+    bottom: 10px;
+    right: 55px;
+    background-color: black;
+    color: var(--color-blanc);
+    padding: 5px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    font-size: .8rem;
+    font-weight: 400;
+}
+
+/* Montre la bulle au survol */
+#music_control:hover::after {
+    opacity: 1;
+    visibility: visible;
+}

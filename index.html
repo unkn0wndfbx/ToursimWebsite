@@ -28,6 +28,13 @@
         </nav>
     </header>
 
+    <button id="music_control"><i class="fa-solid fa-play"></i></button>
+
+    <audio id="background-music" loop>
+        <source src="votre-musique.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+
     <section id="accueil">
         <h2>Découvrez<br>Gourbit</h2>
         <p class="desc">Gourbit est une commune française, située dans le centre du département de l'Ariège en région
@@ -330,6 +337,24 @@
         initSlider('slider1');
         initSlider('slider2');
 
+    </script>
+
+    <script>
+        const musicControl = document.getElementById('music_control');
+        const backgroundMusic = document.getElementById('background-music');
+
+        let isPlaying = false;
+
+        musicControl.addEventListener('click', () => {
+            if (isPlaying) {
+                backgroundMusic.pause();
+                musicControl.innerHTML = '<i class="fa-solid fa-play"></i>';
+            } else {
+                backgroundMusic.play();
+                musicControl.innerHTML = '<i class="fa-solid fa-pause"></i>';
+            }
+            isPlaying = !isPlaying;
+        });
     </script>
 </body>
 
