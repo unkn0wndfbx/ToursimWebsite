@@ -11,6 +11,7 @@
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/7a0b90407e.js"></script>
     <link href="style.css" rel="stylesheet">
     <link as="font" rel="preload">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 
 <body>
@@ -21,8 +22,8 @@
                 <li><a href="#destinations">Choses à faire</a></li>
                 <li><a href="#evenements">Évènements</a></li>
                 <li><a href="#logements">Où se loger</a></li>
-                <li><a href="#accueil">Où manger</a></li>
-                <li><a href="#accueil">Carte</a></li>
+                <li><a href="#nourrir">Où manger</a></li>
+                <li><a href="#carte">Carte</a></li>
             </ul>
         </nav>
     </header>
@@ -173,11 +174,11 @@
     </section>
 
     <section id="logements">
-        <h2>Où ce <span>loger</span> ?</h2>
+        <h2>Où se <span>loger</span> ?</h2>
         <p class="desc">Découvrez tous les logements situés dans le village.</p>
 
-        <div class="slider">
-            <div class="slider__wrp">
+        <div class="slider1">
+            <div class="slider_wrapper">
                 <div class="item row">
                     <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759872/kuldar-kalvik-799168-unsplash.webp"
                         alt="">
@@ -186,7 +187,6 @@
                         <h3>Lorem Ipsum Dolor</h3>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                             Recusandae voluptate repellendus magni illo ea animi? </p>
-                        <a href="#" class="blog-slider__button">READ MORE</a>
                     </div>
                 </div>
 
@@ -198,7 +198,6 @@
                         <h3>Lorem Ipsum Dolor</h3>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                             Recusandae voluptate repellendus magni illo ea animi?</p>
-                        <a href="#" class="blog-slider__button">READ MORE</a>
                     </div>
                 </div>
 
@@ -210,36 +209,126 @@
                         <h3>Lorem Ipsum Dolor</h3>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                             Recusandae voluptate repellendus magni illo ea animi?</p>
-                        <a href="#" class="blog-slider__button">READ MORE</a>
                     </div>
                 </div>
             </div>
 
-            <div class="slider-nav">
-                <button id="prev">Prev</button>
-                <button id="next">Next</button>
+            <div class="slider_nav">
+                <button class="nav-dot" data-index="0"></button>
+                <button class="nav-dot" data-index="1"></button>
+                <button class="nav-dot" data-index="2"></button>
             </div>
         </div>
     </section>
 
+    <section id="nourrir">
+        <h2>Où <span>manger</span> ?</h2>
+        <p class="desc">Découvrez tous les endroits pour manger dans le village.</p>
+
+        <div class="slider2">
+            <div class="slider_wrapper">
+                <div class="item row">
+                    <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759872/kuldar-kalvik-799168-unsplash.webp"
+                        alt="">
+                    <div class="column">
+                        <span>26 December 2019</span>
+                        <h3>Lorem Ipsum Dolor</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                            Recusandae voluptate repellendus magni illo ea animi? </p>
+                    </div>
+                </div>
+
+                <div class="item row">
+                    <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759871/jason-leung-798979-unsplash.webp"
+                        alt="">
+                    <div class="column">
+                        <span>26 December 2019</span>
+                        <h3>Lorem Ipsum Dolor</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                            Recusandae voluptate repellendus magni illo ea animi?</p>
+                    </div>
+                </div>
+
+                <div class="item row">
+                    <img src="https://res.cloudinary.com/muhammederdem/image/upload/q_60/v1535759871/alessandro-capuzzi-799180-unsplash.webp"
+                        alt="">
+                    <div class="column">
+                        <span>26 December 2019</span>
+                        <h3>Lorem Ipsum Dolor</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                            Recusandae voluptate repellendus magni illo ea animi?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider_nav">
+                <button class="nav-dot" data-index="0"></button>
+                <button class="nav-dot" data-index="1"></button>
+                <button class="nav-dot" data-index="2"></button>
+            </div>
+        </div>
+    </section>
+
+    <section id="carte">
+        <h2>La <span>carte</span>.</h2>
+        <p class="desc">Découvrez le village.</p>
+
+        <div id="map"></div>
+    </section>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-        const slides = document.querySelectorAll('.slider .item');
-        const sliderWrapper = document.querySelector('.slider__wrp');
-        let currentIndex = 0;
+        var map = L.map('map').setView([42.841671, 1.53333], 15);
 
-        document.getElementById('next').addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % slides.length;
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        var marker = L.marker([42.841671, 1.53333]).addTo(map);
+    </script>
+
+    <script>
+        function initSlider(sliderClass) {
+            const sliderWrapper = document.querySelector(`.${sliderClass} .slider_wrapper`);
+            const dots = document.querySelectorAll(`.${sliderClass} .nav-dot`);
+            const totalSlides = dots.length;
+            let currentIndex = 0;
+            let autoSlideInterval;
+
+            function updateSlider() {
+                sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+                dots.forEach(dot => dot.classList.remove('active'));
+                dots[currentIndex].classList.add('active');
+            }
+
+            function startAutoSlide() {
+                autoSlideInterval = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    updateSlider();
+                }, 7000);
+            }
+
+            function stopAutoSlide() {
+                clearInterval(autoSlideInterval);
+            }
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    currentIndex = parseInt(e.target.getAttribute('data-index'));
+                    updateSlider();
+                    stopAutoSlide();
+                    startAutoSlide();
+                });
+            });
+
             updateSlider();
-        });
-
-        document.getElementById('prev').addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            updateSlider();
-        });
-
-        function updateSlider() {
-            sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+            startAutoSlide();
         }
+
+        // Initialisation des deux sliders
+        initSlider('slider1');
+        initSlider('slider2');
 
     </script>
 </body>
