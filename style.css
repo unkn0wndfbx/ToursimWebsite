@@ -134,7 +134,7 @@ header h1 a {
     color: var(--color-primaire);
 }
 
-/* accueil */
+/* sections */
 section#accueil,
 section#destinations,
 section#evenements,
@@ -148,6 +148,11 @@ section#carte {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+/* accueil */
+section#accueil {
+    position: relative;
 }
 
 #accueil h2 {
@@ -198,6 +203,27 @@ section#carte {
     font-size: 1rem;
     font-weight: 400;
     color: var(--color-gris);
+}
+
+#accueil img {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    opacity: 0.5;
+}
+
+#accueil .rectangle {
+    width: 100vw;
+    height: 206px;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    opacity: 0.9;
+    z-index: -1;
+    background: linear-gradient(0deg, var(--color-noir) 0%, rgba(0, 0, 0, 0.00) 100%);
 }
 
 /* section destinations */
@@ -272,6 +298,12 @@ h2 span {
     flex-direction: column;
     justify-content: center;
     align-items: start;
+    cursor: pointer;
+    transition: backdrop-filter 0.1s ease-in-out;
+}
+
+#destinations .card .overlay:hover {
+    backdrop-filter: blur(10px);
 }
 
 #destinations .card h3 {
