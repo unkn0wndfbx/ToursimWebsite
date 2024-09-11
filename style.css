@@ -274,6 +274,19 @@ h2 span {
     border: 2px solid var(--color-border);
     overflow: hidden;
     height: 350px;
+    opacity: 0;
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(.7) translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
 }
 
 #destinations .card img {
@@ -299,7 +312,7 @@ h2 span {
     justify-content: center;
     align-items: start;
     cursor: pointer;
-    transition: backdrop-filter 0.1s ease-in-out;
+    transition: backdrop-filter 0.3s ease-in-out;
 }
 
 #destinations .card .overlay:hover {
