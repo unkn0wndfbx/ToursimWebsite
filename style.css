@@ -134,6 +134,39 @@ header h1 a {
     color: var(--color-primaire);
 }
 
+/* icone hamburger */
+.menu_hamburger {
+    position: fixed;
+    top: 20px;
+    right: 10%;
+    font-size: 48px;
+    color: var(--color-primaire);
+    display: none;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+/* responsive header */
+.header_responsive {
+    width: 100%;
+    height: var(--header-height);
+    display: none;
+    justify-content: start;
+    align-items: center;
+    padding: 1.5% 10%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.header_responsive h1 {
+    pointer-events: none;
+    color: var(--color-blanc);
+    font-size: 2rem;
+}
+
 /* sections */
 section#accueil,
 section#destinations,
@@ -156,24 +189,33 @@ section#accueil {
 }
 
 #accueil h2 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 3vw, 3rem);
     font-weight: 800;
     line-height: 1.1;
     color: var(--color-blanc);
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     margin-top: auto;
     max-width: 30%;
 }
 
+#accueil h2 span {
+    color: var(--color-blanc);
+}
+
 #accueil p.desc {
-    font-size: 1rem;
+    font-size: clamp(.9rem, 3vw, 1.2rem);
     line-height: 1.4;
     font-weight: 500;
     color: var(--color-gris);
     text-align: center;
     margin-top: 12px;
     margin-bottom: auto;
-    max-width: 30%;
+    width: 30vw;
+    min-width: 250px;
 }
 
 #accueil .bas {
@@ -192,7 +234,7 @@ section#accueil {
 }
 
 #accueil .bas h3 {
-    font-size: 1.4rem;
+    font-size: clamp(1rem, 3vw, 1.4rem);
     font-weight: 500;
     color: var(--color-blanc);
     margin-bottom: 12px;
@@ -200,7 +242,7 @@ section#accueil {
 }
 
 #accueil .bas p {
-    font-size: 1rem;
+    font-size: clamp(.8rem, 3vw, 1rem);
     font-weight: 400;
     color: var(--color-gris);
 }
@@ -208,6 +250,7 @@ section#accueil {
 #accueil img {
     width: 100vw;
     height: 100vh;
+    object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
@@ -238,7 +281,7 @@ section#destinations {
 #logements h2,
 #nourrir h2,
 #carte h2 {
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 3vw, 2rem);
     font-weight: 600;
     color: var(--color-blanc);
     text-align: center;
@@ -253,7 +296,7 @@ h2 span {
 #logements p.desc,
 #nourrir p.desc,
 #carte p.desc {
-    font-size: 1rem;
+    font-size: clamp(.8rem, 3vw, 1rem);
     font-weight: 500;
     color: var(--color-gris);
     text-align: center;
@@ -273,7 +316,8 @@ h2 span {
     border-radius: var(--border-radius);
     border: 2px solid var(--color-border);
     overflow: hidden;
-    height: 350px;
+    height: 27vw;
+    min-height: 280px;
     opacity: 0;
 }
 
@@ -320,13 +364,13 @@ h2 span {
 }
 
 #destinations .card h3 {
-    font-size: 1.4rem;
+    font-size: clamp(1rem, 3vw, 1.4rem);
     margin-bottom: 4px;
     line-height: 1;
 }
 
 #destinations .card p {
-    font-size: .9rem;
+    font-size: clamp(.7rem, 3vw, .9rem);
     color: var(--color-blanc-texte);
     line-height: 1.2rem;
 }
@@ -352,7 +396,7 @@ h2 span {
 }
 
 #destinations .profile span {
-    font-size: 1rem;
+    font-size: clamp(.8rem, 3vw, 1rem);
     font-weight: 600;
 }
 
@@ -388,7 +432,6 @@ section#evenements {
     border-radius: var(--border-radius);
     border: 2px solid var(--color-border);
     width: 50%;
-    height: 50%;
     height: auto;
     object-fit: cover;
     margin-right: 5%;
@@ -405,14 +448,14 @@ section#evenements {
 }
 
 #evenements .row h3 {
-    font-size: 1.8rem;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
     margin-bottom: 12px;
     font-weight: 700;
     color: var(--color-blanc);
 }
 
 #evenements .row p {
-    font-size: 1.1rem;
+    font-size: clamp(.9rem, 3vw, 1.1rem);
     color: var(--color-blanc-texte);
 }
 
@@ -424,7 +467,7 @@ section#logements {
 .slider1,
 .slider2 {
     position: relative;
-    width: 50vw;
+    width: 700px;
     overflow: hidden;
     /* height: 45vh; */
     border-radius: var(--border-radius);
@@ -446,10 +489,8 @@ section#logements {
 }
 
 .slider_wrapper img {
-    width: 15vw;
-    height: 15vw;
-    min-width: 15vw;
-    max-width: 15vw;
+    width: 350px;
+    height: 220px;
     margin-right: 5%;
     object-fit: cover;
     overflow: hidden;
@@ -459,18 +500,18 @@ section#logements {
 .slider_wrapper .column {
     align-items: start;
     width: 100%;
-    height: 15vw;
+    height: 220px;
 }
 
 .slider_wrapper .item span {
     color: var(--color-gris);
     font-weight: 500;
-    font-size: 1rem;
+    font-size: clamp(.8rem, 3vw, 1rem);
     line-height: 1;
 }
 
 .slider_wrapper .item h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
     font-weight: 700;
     line-height: 1;
     color: var(--color-blanc);
@@ -480,6 +521,7 @@ section#logements {
 .slider_wrapper .item p {
     color: var(--color-blanc);
     font-weight: 400;
+    font-size: clamp(.8rem, 3vw, 1rem);
     line-height: 1.4rem;
     width: 100%;
     text-align: left;
@@ -522,8 +564,9 @@ section#carte {
 }
 
 #carte #map {
-    width: 50vw;
+    width: 700px;
     height: 55vh;
+    min-height: 350px;
     border-radius: var(--border-radius);
     border: 2px solid var(--color-border);
 }
@@ -575,4 +618,206 @@ section#carte {
 #music_control:hover::after {
     opacity: 1;
     visibility: visible;
+}
+
+/* responsive */
+@media (min-width: 800px) and (max-width: 1000px) {
+    #destinations .grid-container {
+        gap: 15px;
+    }
+
+    #destinations .card .overlay {
+        padding: 25px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    /* ascenseur page */
+    body {
+        overflow-y: auto;
+    }
+
+    /* menu hamburger */
+    header {
+        flex-direction: column;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: var(--color-noir);
+        width: 100%;
+        height: 100vh;
+        margin-left: 100%;
+        transition: margin .5s ease-out;
+        z-index: 99;
+        overflow-y: auto;
+    }
+
+    .menu_hamburger_active {
+        /* menu hamburger visibilité */
+        margin-left: 0;
+    }
+
+    header h1 {
+        display: none;
+    }
+
+    .nav_links {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .nav_links li {
+        margin: 13% 0;
+    }
+
+    .nav_links li i,
+    .nav_links li a {
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
+    }
+
+    .nav_links li a:after {
+        height: 4px;
+    }
+
+    .menu_hamburger {
+        display: block;
+    }
+
+    .header_responsive {
+        display: flex;
+    }
+
+    #destinations .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    #destinations .card.large {
+        grid-column: span 1;
+    }
+
+    #destinations .card.large:last-child {
+        grid-column: span 2;
+    }
+
+    #destinations .card.medium {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    #evenements .row,
+    #evenements .row.reverse {
+        flex-direction: column;
+        margin-bottom: 15%;
+    }
+
+    #evenements p.desc {
+        margin-bottom: 15%;
+    }
+
+    #evenements img {
+        width: 60%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 5%;
+    }
+
+    #evenements .row.reverse img {
+        margin-left: 0;
+    }
+
+    #evenements .column {
+        width: 100%;
+        align-items: start;
+    }
+
+    .slider1,
+    .slider2 {
+        width: 530px;
+    }
+
+    .slider_wrapper img {
+        width: 300px;
+        height: 170px;
+    }
+
+    .slider_wrapper .column {
+        height: 170px;
+    }
+
+    .slider_nav button {
+        width: 10px;
+        height: 10px;
+    }
+
+    #carte #map {
+        width: 530px;
+    }
+}
+
+@media (max-width: 600px) {
+    #destinations .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    #destinations .card.large:last-child {
+        grid-column: span 1;
+    }
+
+    #destinations .card.medium {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .slider1,
+    .slider2 {
+        width: 400px;
+    }
+
+    .slider_wrapper img {
+        width: 180px;
+        height: 180px;
+        margin-right: 0;
+        margin-bottom: 5%;
+    }
+
+    .slider_wrapper .column {
+        height: auto;
+    }
+
+    .slider_wrapper .item {
+        flex-direction: column;
+    }
+
+    #carte #map {
+        width: 400px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    #destinations p.desc,
+    #evenements p.desc,
+    #logements p.desc,
+    #nourrir p.desc,
+    #carte p.desc {
+        margin-inline: 5%;
+    }
+
+    .slider1,
+    .slider2 {
+        width: 280px;
+    }
+
+    .slider_wrapper img {
+        width: 150px;
+        height: 150px;
+        margin-right: 0;
+        margin-bottom: 5%;
+    }
+
+    #carte #map {
+        width: 280px;
+    }
 }
