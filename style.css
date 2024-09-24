@@ -239,7 +239,7 @@ section#accueil {
     font-weight: 500;
     color: var(--color-blanc);
     margin-bottom: 12px;
-    line-height: 1.1rem;
+    line-height: 1.3rem;
 }
 
 #accueil .bas p {
@@ -622,6 +622,24 @@ section#carte {
 }
 
 /* responsive */
+@media (max-width: 1000px) {
+    #accueil .bas {
+        padding: 1.5% 2%;
+    }
+
+    #accueil .bas div {
+        max-width: none;
+    }
+
+    #accueil .bas div:nth-child(2) h3 {
+        text-align: right;
+    }
+
+    #accueil .bas p {
+        display: none;
+    }
+}
+
 @media (min-width: 800px) and (max-width: 1000px) {
     #destinations .grid-container {
         gap: 15px;
