@@ -209,8 +209,8 @@ section#accueil {
 #accueil p.desc {
     font-size: clamp(.9rem, 3vw, 1.2rem);
     line-height: 1.4;
-    font-weight: 500;
-    color: var(--color-gris);
+    font-weight: 400;
+    color: var(--color-secondaire);
     text-align: center;
     margin-top: 12px;
     margin-bottom: auto;
@@ -231,6 +231,7 @@ section#accueil {
     align-items: start;
     justify-content: center;
     flex-direction: column;
+    max-width: 30%;
 }
 
 #accueil .bas h3 {
@@ -355,7 +356,7 @@ h2 span {
     flex-direction: column;
     justify-content: center;
     align-items: start;
-    cursor: pointer;
+    /* cursor: pointer; */
     transition: backdrop-filter 0.3s ease-in-out;
 }
 
