@@ -6,18 +6,17 @@
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="Concours S3#1 (Créer et coder le site d'une ville)" name="description">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Gourbit</title>
+    <title>Valtina</title>
     <!-- importation des librairies -->
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/7a0b90407e.js"></script>
     <link href="style.css" rel="stylesheet">
     <link as="font" rel="preload">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
 </head>
 
 <body>
     <header id="header">
-        <h1 class="title"><a href="#accueil">Gourbit</a></h1>
+        <h1 class="title"><a href="#accueil">Valtina</a></h1>
         <nav class="navbar">
             <ul class="nav_links">
                 <li><a href="#destinations">Choses à faire</a></li>
@@ -31,7 +30,7 @@
 
     <!-- header responsive -->
     <div class="header_responsive">
-        <h1 class="header_responsive_title">Gourbit</h1>
+        <h1 class="header_responsive_title">Valtina</h1>
     </div>
 
     <!-- icone pour menu responsive -->
@@ -41,7 +40,7 @@
     <button id="music_control"><i class="fa-solid fa-play"></i></button>
 
     <audio id="background-music" loop>
-        <source src="musique/Kosmorider-Night.mp3" type="audio/mp3">
+        <source src="music/Kosmorider-Night.mp3" type="audio/mp3">
         Your browser does not support the audio tag.
     </audio>
 
@@ -53,12 +52,12 @@
         <div class="bas">
             <div>
                 <h3>Explorez nos paysages</h3>
-                <p>Admirez les panoramas époustouflants et les paysages verdoyants qui entourent Gourbit. Un véritable
+                <p>Admirez les panoramas époustouflants et les paysages verdoyants qui entourent Valtina. Un véritable
                     havre de paix pour les amateurs de nature.</p>
             </div>
             <div>
                 <h3>Vivez des moments inoubliables</h3>
-                <p>Que vous soyez en quête d'aventures ou de détente, Gourbit a tout pour vous séduire. Découvrez notre
+                <p>Que vous soyez en quête d'aventures ou de détente, Valtina a tout pour vous séduire. Découvrez notre
                     village et laissez-vous envoûter par son ambiance unique.</p>
             </div>
         </div>
@@ -293,7 +292,7 @@
                     <img src="images/resto-gastro.jpg" alt="Image restaurant Gastronomique">
                     <div class="column">
                         <span>Restaurant Gastronomique</span>
-                        <h3>Le Gourmet de Gourbit</h3>
+                        <h3>Le Gourmet de Valtina</h3>
                         <p>Savourez une cuisine raffinée et des plats préparés avec des ingrédients locaux frais dans un
                             cadre élégant et chaleureux. Ce restaurant propose une expérience culinaire exceptionnelle
                             avec des mets délicieux qui raviront les palais les plus exigeants. Idéal pour une soirée
@@ -350,7 +349,7 @@
 
     <section id="carte">
         <h2>La <span>carte</span>.</h2>
-        <p class="desc">Découvrez la carte interactive de Gourbit pour explorer le village.
+        <p class="desc">Découvrez la carte interactive de Valtina pour explorer le village.
         </p>
 
         <div id="map"></div>
@@ -359,149 +358,12 @@
     <a href="https://www.freepik.com/" target="_blank" class="attribution">Images de freepik</a>
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-    <script>
-        var map = L.map('map').setView([42.841671, 1.53333], 15);
 
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
-
-        var marker = L.marker([42.841671, 1.53333]).addTo(map);
-    </script>
-
-    <script>
-        function initSlider(sliderClass) {
-            const sliderWrapper = document.querySelector(`.${sliderClass} .slider_wrapper`);
-            const dots = document.querySelectorAll(`.${sliderClass} .nav-dot`);
-            const totalSlides = dots.length;
-            let currentIndex = 0;
-            let autoSlideInterval;
-
-            function updateSlider() {
-                sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-                dots.forEach(dot => dot.classList.remove('active'));
-                dots[currentIndex].classList.add('active');
-            }
-
-            function startAutoSlide() {
-                autoSlideInterval = setInterval(() => {
-                    currentIndex = (currentIndex + 1) % totalSlides;
-                    updateSlider();
-                }, 7000);
-            }
-
-            function stopAutoSlide() {
-                clearInterval(autoSlideInterval);
-            }
-
-            dots.forEach(dot => {
-                dot.addEventListener('click', (e) => {
-                    currentIndex = parseInt(e.target.getAttribute('data-index'));
-                    updateSlider();
-                    stopAutoSlide();
-                    startAutoSlide();
-                });
-            });
-
-            updateSlider();
-            startAutoSlide();
-        }
-
-        // Initialisation des deux sliders
-        initSlider('slider1');
-        initSlider('slider2');
-
-    </script>
-
-    <script>
-        const musicControl = document.getElementById('music_control');
-        const backgroundMusic = document.getElementById('background-music');
-
-        let isPlaying = false;
-
-        musicControl.addEventListener('click', () => {
-            if (isPlaying) {
-                backgroundMusic.pause();
-                musicControl.innerHTML = '<i class="fa-solid fa-play"></i>';
-            } else {
-                backgroundMusic.play();
-                musicControl.innerHTML = '<i class="fa-solid fa-pause"></i>';
-            }
-            isPlaying = !isPlaying;
-        });
-    </script>
-
-    <script>
-        function isElementVisible(element) {
-            const { top, bottom } = element.getBoundingClientRect();
-            const centerY = (top + bottom) / 2;
-            const offset = 100;
-            const isVisible = (centerY - offset >= 0 && centerY <= (window.innerHeight + offset));
-            return isVisible;
-        }
-
-        function getRandomDuration() {
-            return (Math.random() * 0.5 + 0.4).toFixed(2) + 's';
-        }
-
-        function getRandomDelay() {
-            return (Math.random() * 0.6).toFixed(2) + 's';
-        }
-
-        window.addEventListener('scroll', () => {
-            const gridContainer = document.querySelector('.grid-container');
-
-            if (isElementVisible(gridContainer) && !gridContainer.classList.contains('animated')) {
-                const cards = Array.from(document.querySelectorAll('.grid-container .card'));
-
-                cards.sort(() => Math.random() - 0.5);
-
-                cards.forEach(card => {
-                    const randomDuration = getRandomDuration();
-                    const randomDelay = getRandomDelay();
-
-                    card.style.animation = `cardFadeIn ${randomDuration} ease-in-out ${randomDelay} forwards`;
-                });
-
-                gridContainer.classList.add('animated');
-            }
-        });
-
-    </script>
-
-    <script>
-        // menu hamburger
-        const header = document.querySelector("header#header");
-        const menuHamburger = document.querySelector(".menu_hamburger");
-        const liens = header.querySelectorAll('a');
-        // fonction : icone menu hamburger cliquee
-        menuHamburger.addEventListener('click', () => {
-            header.classList.toggle('menu_hamburger_active');
-
-            // condition : menu hamburger active
-            if (header.classList.contains('menu_hamburger_active')) {
-                menuHamburger.style.color = "var(--color-blanc)";
-                document.body.style.overflow = "hidden";
-            }
-            else {
-                menuHamburger.style.color = "var(--color-primaire)";
-                document.body.style.overflowY = "auto";
-            }
-        })
-
-        // fonction : liens menu hamburger cliquees
-        liens.forEach(liens => {
-            liens.addEventListener('click', () => {
-                if (header.classList.contains('menu_hamburger_active')) {
-                    header.classList.remove('menu_hamburger_active');
-                    menuHamburger.style.color = "var(--color-primaire)";
-                    document.body.style.overflowY = "auto";
-                }
-            })
-        })
-    </script>
-
+    <script src="js/map.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/animation.js"></script>
+    <script src="js/menuHam.js"></script>
 </body>
 
 </html>
