@@ -486,7 +486,7 @@ section#logements {
 .slider_wrapper .item {
     min-width: 100%;
     height: 100%;
-    padding: 5%;
+    padding: 10% 5%;
 }
 
 .slider_wrapper img {
@@ -619,6 +619,12 @@ section#carte {
 #music_control:hover::after {
     opacity: 1;
     visibility: visible;
+}
+
+/* attribution link */
+a.attribution {
+    color: var(--color-blanc);
+    margin-bottom: 5%;
 }
 
 /* responsive */
