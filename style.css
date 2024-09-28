@@ -644,6 +644,33 @@ a.attribution {
     #accueil .bas p {
         display: none;
     }
+
+    #evenements .row,
+    #evenements .row.reverse {
+        flex-direction: column;
+        margin-bottom: 15%;
+    }
+
+    #evenements p.desc {
+        margin-bottom: 15%;
+    }
+
+    #evenements img {
+        width: 60%;
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 5%;
+    }
+
+    #evenements .row.reverse img {
+        margin-left: 0;
+    }
+
+    #evenements .column {
+        width: 100%;
+        align-items: start;
+    }
+
 }
 
 @media (min-width: 800px) and (max-width: 1000px) {
@@ -729,32 +756,6 @@ a.attribution {
     #destinations .card.medium {
         grid-column: span 1;
         grid-row: span 1;
-    }
-
-    #evenements .row,
-    #evenements .row.reverse {
-        flex-direction: column;
-        margin-bottom: 15%;
-    }
-
-    #evenements p.desc {
-        margin-bottom: 15%;
-    }
-
-    #evenements img {
-        width: 60%;
-        height: auto;
-        margin-right: 0;
-        margin-bottom: 5%;
-    }
-
-    #evenements .row.reverse img {
-        margin-left: 0;
-    }
-
-    #evenements .column {
-        width: 100%;
-        align-items: start;
     }
 
     .slider1,

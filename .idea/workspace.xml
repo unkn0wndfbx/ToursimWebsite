@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="857953bb-8701-4fba-a3b3-f1c65c71f318" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/images/col_brumes.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/home.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="857953bb-8701-4fba-a3b3-f1c65c71f318" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +81,7 @@
       <updated>1725870510756</updated>
       <workItem from="1725870511841" duration="9120000" />
       <workItem from="1726144729663" duration="22000" />
-      <workItem from="1727522893313" duration="1603000" />
+      <workItem from="1727522893313" duration="1635000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -96,7 +91,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725892794595</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="all images add">
+      <option name="closed" value="true" />
+      <created>1727535734221</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727535734221</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -105,6 +108,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="First commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit" />
+    <MESSAGE value="all images add" />
+    <option name="LAST_COMMIT_MESSAGE" value="all images add" />
   </component>
 </project>
