@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="857953bb-8701-4fba-a3b3-f1c65c71f318" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/doc/interface.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="857953bb-8701-4fba-a3b3-f1c65c71f318" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +82,7 @@
       <workItem from="1725870511841" duration="9120000" />
       <workItem from="1726144729663" duration="22000" />
       <workItem from="1727522893313" duration="1635000" />
-      <workItem from="1727542327996" duration="364000" />
+      <workItem from="1727542327996" duration="735000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -112,7 +108,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727542766814</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ico add">
+      <option name="closed" value="true" />
+      <created>1727542927056</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727542927056</updated>
+    </task>
+    <task id="LOCAL-00005" summary="icon bug fix">
+      <option name="closed" value="true" />
+      <created>1727543035068</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727543035068</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +135,8 @@
     <MESSAGE value="First commit" />
     <MESSAGE value="all images add" />
     <MESSAGE value="interface.png add + responsive bug fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="interface.png add + responsive bug fix" />
+    <MESSAGE value="ico add" />
+    <MESSAGE value="icon bug fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="icon bug fix" />
   </component>
 </project>
