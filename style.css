@@ -565,6 +565,7 @@ section#carte {
 }
 
 #carte #map {
+    z-index: 1;
     width: 700px;
     height: 55vh;
     min-height: 350px;
@@ -623,7 +624,10 @@ section#carte {
 
 /* attribution link */
 a.attribution {
-    color: var(--color-blanc);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--color-secondaire);
     margin-bottom: 5%;
 }
 
@@ -741,6 +745,10 @@ a.attribution {
         display: flex;
     }
 
+    #music_control {
+        display: none;
+    }
+
     #destinations .grid-container {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -769,7 +777,12 @@ a.attribution {
     }
 
     .slider_wrapper .column {
-        height: 170px;
+        height: 250px;
+    }
+
+    .slider_wrapper .item p {
+        font-weight: 300;
+        line-height: auto;
     }
 
     .slider_nav button {
